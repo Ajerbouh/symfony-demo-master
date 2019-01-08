@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <h1>page de {{ user.firstname }} {{ user.lastname }}</h1>
+
+    <p>mail : {{ user.email }}</p>
+
+    <h2>{{ user.firstname }} articles</h2>
+    {% for article in articles %}
+        <div class="col s12">
+            <h2 class="header">{{ article.name }}</h2>
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src={{ article.imageUrl }}>
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>{{ article.content }}</p>
+                    </div>
+                    <div class="card-action">
+                        <p>created at : {{ article.createdAt|date }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
